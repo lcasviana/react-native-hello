@@ -8,12 +8,13 @@ import useRedditResources from '../hooks/useRedditResources';
 
 export default function TabRedditScreen() {
   const results = useRedditResources('javascript');
-
+  console.log(results);
   return (
     <View style={styles.container}>
-      <FlatList
-        data={results}
-        renderItem={({ item }) => <RedditItem item={item} />} />
+      {!!results?.length &&
+        <FlatList
+          data={results}
+          renderItem={({ item }) => <RedditItem item={item} />} />}
     </View>
   );
 }

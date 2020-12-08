@@ -8,7 +8,7 @@ export default function useRedditResources(tag: string) {
     async function loadRedditResourcesAsync() {
       try {
         const res = await RedditApi.getByTag(tag);
-        setResults(res);
+        setResults(res.data.data.children);
       } catch (err) {
         setResults([err]);
       }
